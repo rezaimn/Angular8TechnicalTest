@@ -1,0 +1,9 @@
+@import "../tasks.component";
+
+
+.add-edit-form {
+  &__operand{
+    @extend .table-btn;
+    margin-top: 20px;
+  }
+}

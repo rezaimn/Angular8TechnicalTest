@@ -1,0 +1,42 @@
+<div class="container " *ngIf="selectedTask">
+  <div class="card m-5 add-edit-form">
+    <div class="card-header">
+      {{selectedTask.id > 0 ? 'Edit Task ' + selectedTask.label : 'Add New Task'}}
+    </div>
+    <div class="card-body px-3 px-5">
+      <form #formData="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class=" form-group col-6">
+            <label>Task Label</label>
+            <input type="text" name="label" [(ngModel)]="selectedTask.label" class="form-control"
+                   placeholder="Task Label">
+          </div>
+          <div class=" form-group col-6">
+            <label>State</label>
+            <select name="category" [(ngModel)]="selectedTask.category" id="inputState" class="form-control">
+              <option [value]="''" selected disabled>Choose a category</option>
+              <option [value]="category.value" *ngFor="let category of categoriesList">
+                {{category.label}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-12 ">
+            <label for="description">Description</label>
+            <textarea [(ngModel)]="selectedTask.description" name="description" class="form-control" id="description"
+                      rows="3">
+            </textarea>
+          </div>
+          <div class="form-group col-6">
+            <label>Done</label>
+            <input name="done" [(ngModel)]="selectedTask.done" type="date" class="form-control">
+          </div>
+          <div class="form-group col-6">
+            <button type="button" class="btn btn-danger add-edit-form__operand" (click)="initializeNewTak()">Reset
+            </button>
+            <button type="submit" class="btn btn-success add-edit-form__operand">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

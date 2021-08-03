@@ -1,0 +1,12 @@
+@import "src/app/app.component";
+
+.tasks{
+  &__header{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px 0;
+  }
+  &__operand{
+    @extend .table-btn;
+  }
+}
